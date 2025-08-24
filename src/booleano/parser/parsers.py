@@ -276,7 +276,7 @@ class Parser(object):
                                    if six.unichr(n).isdigit()])
         unicode_number_expr = Regex("[%s]" % unicode_numbers, re.UNICODE)
         space_char = re.escape(self._grammar.get_token("identifier_spacing"))
-        identifier0 = Regex("[\w%s]+" % space_char, re.UNICODE)  # noqa: W605
+        identifier0 = Regex(r"[\w%s]+" % space_char, re.UNICODE)  # noqa: W605
         # Identifiers cannot start with a number:
         identifier0 = Combine(~unicode_number_expr + identifier0)
         identifier0.setName("individual_identifier")
